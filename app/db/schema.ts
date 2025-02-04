@@ -3,6 +3,7 @@ import { real } from "drizzle-orm/pg-core";
 import { boolean } from "drizzle-orm/pg-core";
 import { pgTable, text, timestamp, uuid, index, pgEnum, primaryKey } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm/relations";
+import * as t from "drizzle-orm/pg-core";
 
 
 const createdAt = timestamp("created_at", { withTimezone: true }).notNull().defaultNow();
