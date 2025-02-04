@@ -1,9 +1,7 @@
 import { subscriptionTiers, TierNames } from "@/app/data/subscriptionTiers";
-import { pgEnum, primaryKey } from "drizzle-orm/pg-core";
 import { real } from "drizzle-orm/pg-core";
 import { boolean } from "drizzle-orm/pg-core";
-import { index } from "drizzle-orm/pg-core";
-import { pgTable, text, timestamp, uuid } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp, uuid, index, pgEnum, primaryKey } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm/relations";
 
 
@@ -136,7 +134,7 @@ export const TierEnum = pgEnum("tier", Object.keys(subscriptionTiers) as [TierNa
 export const UserSubscriptionTable = pgTable("user_subscriptions", {
     id: uuid("id").primaryKey().defaultRandom(),
     clerkUserId: text("clerk_user_id").notNull().unique(),
-    stripeAubacriptionItemId: text("stripe_subscription_item_id"),
+    stripeSubscriptionItemId: text("stripe_subscription_item_id"),
     stripeSubscriptionId: text("stripe_subscription_id"),
     stripeCustomerId: text("stripe_customer_id"),
     tier: TierEnum("tier").notNull(),
