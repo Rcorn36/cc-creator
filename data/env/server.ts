@@ -1,5 +1,8 @@
 import { createEnv } from "@t3-oss/env-nextjs"
 import { z } from "zod"
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export const env = createEnv({
     emptyStringAsUndefined: true,
@@ -9,4 +12,4 @@ export const env = createEnv({
         CLERK_WEBHOOK_SECRET: z.string(),
       },
       experimental__runtimeEnv: process.env,
-    })
+    });
