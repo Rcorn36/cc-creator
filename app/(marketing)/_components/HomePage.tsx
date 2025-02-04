@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import Education from "./Education";
@@ -66,11 +66,7 @@ function PricingCard({
   name,
   priceInCents,
   maxNumberOfProducts,
-  maxNumberOfVisits,
-  canAccessAnalytics,
-  canCustomizeBanner,
-  canRemoveBranding,
-  stripePriceId,
+  
 }: typeof subscriptionTiersInOrder[number]) {
   return (
     <Card>
