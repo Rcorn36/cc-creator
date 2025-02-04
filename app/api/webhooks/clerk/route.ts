@@ -16,10 +16,10 @@ export async function POST(req: Request) {
   const wh = new Webhook(env.CLERK_WEBHOOK_SECRET);
 
   // Get headers
-  const headerPayload = await headers();
-  const svixId = headerPayload.get("svix-id");
-  const svixTimestamp = headerPayload.get("svix-timestamp");
-  const svixSignature = headerPayload.get("svix-signature");
+  const headerPayload = headers();
+  const svixId = (await headerPayload).get("svix-id");
+  const svixTimestamp = (await headerPayload).get("svix-timestamp");
+  const svixSignature = (await headerPayload).get("svix-signature");
 
   // If there are no headers, error out
   if (!svixId || !svixTimestamp || !svixSignature) {
