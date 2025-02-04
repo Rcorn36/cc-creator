@@ -16,7 +16,7 @@ export default function Home() {
             alt="Content Creation"
             width={200}
             height={200}
-            className="rounded-full max-h-60 border border-black border-opacity-30 border-solid border-4"
+            className="rounded-full max-h-60 border-black border-opacity-30 border-solid border-4"
           />
           <div className="flex flex-col gap-4 text-center md:text-left">
             <h1 className="text-4xl text-center font-bold tracking-tight ml-2 mr-4">Hi, I&apos;m Rob Cornett</h1>
