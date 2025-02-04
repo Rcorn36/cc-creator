@@ -131,7 +131,7 @@ table => ({
 })
 )
 
-export const TierEnum = pgEnum("tier", Object.keys(subscriptionTiers) as [TierNames])
+export const TierEnum = pgEnum("tier", Object.keys(subscriptionTiers) as [TierNames]);
 
 export const UserSubscriptionTable = pgTable("user_subscriptions", {
     id: uuid("id").primaryKey().defaultRandom(),
@@ -151,4 +151,4 @@ table => ({
         "user_subscriptions.stripe_customer_id_index"
     ).on(table.stripeCustomerId),
 })
-)
+);
