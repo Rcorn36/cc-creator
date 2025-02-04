@@ -51,14 +51,23 @@ export async function POST(req: Request) {
   switch (event.type) {
     case 'user.created': {
       const userId = event.data.id;
-      await db.insert(UserSubscriptionTable).values({
-        clerkUserId: userId,
-        tier: "ccsocial",
-      });
+      try {
+        await db.insert(UserSubscriptionTable).values({
+          clerkUserId: userId,
+          tier: "ccsocial",
+        });
+      } catch (err) {
+        console.error('Error: Could not insert user subscription:', err);
+        return new Response('Error: Database insertion error', {
+          status: 500,
+        });
+      }
       break;
     }
-    default:
+    default: {
       console.warn(`Unhandled event type: ${event.type}`);
+      break;
+    }
   }
 
   return new Response('Webhook received', { status: 200 });
