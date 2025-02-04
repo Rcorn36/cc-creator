@@ -4,7 +4,7 @@ import { headers } from 'next/headers';
 import { WebhookEvent } from '@clerk/nextjs/server';
 import { env } from '@/data/env/server';
 import { db } from '@/drizzle/db';
-import { UserSubscriptionTable } from '@/drizzle/schema';
+import { UserSubscriptionTable } from '@/app/db/schema';
 
 export async function POST(req: Request) {
   const CLERK_WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;

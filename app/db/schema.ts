@@ -9,7 +9,7 @@ const createdAt = timestamp("created_at", { withTimezone: true }).notNull().defa
 const updatedAt = timestamp("updated_at", { withTimezone: true }).notNull().defaultNow().$onUpdate(() => new Date());
 
 export const ProductTable = pgTable(
-    "products", 
+    'products', 
     {
     id: uuid("id").primaryKey().defaultRandom(),
     clerkUserId: text("clerk_user_id").notNull(),
